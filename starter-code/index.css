@@ -7,21 +7,40 @@
     --clr-dark: 230 35% 7%;
     --clr-light: 231 77% 90%;
     --clr-white: 0 0% 100%;
-
+    
     /* font-sizes */
-    --fs-900: 9.375rem;
-    --fs-800: 6.25rem;
-    --fs-700: 3.5rem;
-    --fs-600: 2rem;
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: 3.5rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
     --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
+    --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
-
+    
     /* font-families */
     --ff-serif: "Bellefair", serif;
     --ff-sans-cond: "Barlow Condensed", sans-serif;
     --ff-sans-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-400: 1.125rem;
+    }
 }
 
 /* ------------------- */
@@ -78,6 +97,9 @@ body {
     background-color: hsl(var(--clr-dark));
     line-height: 1.5;
     min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
@@ -139,6 +161,25 @@ select {
     margin-inline: auto;
     /* put margin on x-axis */
     max-width: 80rem;
+}
+
+.grid-container {
+    display: grid;
+}
+
+@media (min-width: 45em) {
+    .grid-container {
+        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 60rem)) minmax(2rem, 1fr);
+        column-gap: 2rem;
+    }
+
+    .grid-container>*:first-child {
+        grid-column: 2;
+    }
+
+    .grid-container>*:last-child {
+        grid-column: 3;
+    }
 }
 
 /* for the visually impraired people */
@@ -283,7 +324,7 @@ select {
 
 .large-button {
     padding: 0 2em;
-    display: grid;
+    display: inline-grid;
     aspect-ratio: 1;
     border-radius: 50%;
     place-items: center;
@@ -322,53 +363,53 @@ select {
     text-decoration: none;
 }
 
-.primary-navigation a > span {
+.primary-navigation a>span {
     font-weight: 700;
     margin-right: .5em;
 }
 
-.underline-indicators > * {
+.underline-indicators>* {
     cursor: pointer;
     padding: var(--underline-gap, 1rem) 0;
     border: 0;
-    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+    border-bottom: .2rem solid hsl(var(--clr-white) / 0);
 }
 
-.underline-indicators > *:hover,
-.underline-indicators > *:focus {
-    border-color: hsl( var(--clr-white) / .5);
+.underline-indicators>*:hover,
+.underline-indicators>*:focus {
+    border-color: hsl(var(--clr-white) / .5);
 }
 
-.underline-indicators > .active,
-.underline-indicators > [aria-selected="true"] {
-    color: hsl( var(--clr-white) / 1);
-    border-color: hsl( var(--clr-white) / 1);
+.underline-indicators>.active,
+.underline-indicators>[aria-selected="true"] {
+    color: hsl(var(--clr-white) / 1);
+    border-color: hsl(var(--clr-white) / 1);
 }
 
 .tab-list {
     --gap: 2rem;
 }
 
-.dot-indicators > * {
+.dot-indicators>* {
     cursor: pointer;
     border: 0;
     border-radius: 50%;
     padding: .5em;
-    background-color: hsl( var(--clr-white) / .25);
+    background-color: hsl(var(--clr-white) / .25);
 }
 
-.dot-indicators > *:hover,
-.dot-indicators > *:focus {
-    background-color: hsl( var(--clr-white) / .5);
+.dot-indicators>*:hover,
+.dot-indicators>*:focus {
+    background-color: hsl(var(--clr-white) / .5);
 }
 
-.dot-indicators > [aria-selected="true"] {
-    background-color: hsl( var(--clr-white) / 1); 
+.dot-indicators>[aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
 }
 
-.number-indicators > * {
+.number-indicators>* {
     cursor: pointer;
-    border: 1px solid hsl( var(--clr-white) / .25);
+    border: 1px solid hsl(var(--clr-white) / .25);
     border-radius: 50%;
     aspect-ratio: 1;
     padding: 0.85em;
@@ -376,16 +417,16 @@ select {
     display: grid;
 }
 
-.number-indicators > *+* {
+.number-indicators>*+* {
     margin-top: 1.5rem;
 }
 
-.number-indicators > *:hover,
-.number-indicators > *:focus {
-    border-color: hsl( var(--clr-white) / .5);
+.number-indicators>*:hover,
+.number-indicators>*:focus {
+    border-color: hsl(var(--clr-white) / .5);
 }
 
-.number-indicators > [aria-selected="true"] {
-    background-color: hsl( var(--clr-white) / 1); 
+.number-indicators>[aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
     color: hsl(var(--clr-dark));
 }
