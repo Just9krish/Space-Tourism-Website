@@ -348,3 +348,44 @@ select {
 .tab-list {
     --gap: 2rem;
 }
+
+.dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    padding: .5em;
+    background-color: hsl( var(--clr-white) / .25);
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+    background-color: hsl( var(--clr-white) / .5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
+}
+
+.number-indicators > * {
+    cursor: pointer;
+    border: 1px solid hsl( var(--clr-white) / .25);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 0.85em;
+    place-content: center;
+    display: grid;
+}
+
+.number-indicators > *+* {
+    margin-top: 1.5rem;
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+    border-color: hsl( var(--clr-white) / .5);
+}
+
+.number-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
+    color: hsl(var(--clr-dark));
+}
