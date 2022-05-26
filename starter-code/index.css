@@ -370,11 +370,36 @@ select {
 }
 
 .primary-navigation {
-    --gap: 8rem;
     --underline-gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
+    background: hsl(var(--clr-dark) / 0.95);
+    /* backdrop-filter: blur(1.5rem); */
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-navigation {
+        background: hsl(var(--clr-white) / 0.05);
+        backdrop-filter: blur(1.5rem);
+    }
+}
+
+@media (max-width: 35em) {
+    .primary-navigation {
+        --underline-gap: 0.5rem;
+        list-style: none;
+        flex-direction: column;
+        position: fixed;
+        inset: 0 0 0 20%;
+        padding: min(20rem, 15vh);
+        margin: 0;
+        z-index: 1000;
+    }
+
+    .primary-navigation.underline-indicators>.active {
+        border: 0;
+    }
 }
 
 .primary-navigation a {
