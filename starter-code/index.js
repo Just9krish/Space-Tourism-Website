@@ -11,4 +11,4 @@ mobileNavToggle.addEventListener("click", () => {
     primaryNavigation.setAttribute("data-is-visible", false);
     mobileNavToggle.setAttribute("aria-expanded", false);
   }
-});
+})
