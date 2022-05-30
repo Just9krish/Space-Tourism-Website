@@ -44,6 +44,8 @@ function changeTabPanel(e) {
   const targetPanel = targetTab.getAttribute("aria-controls");
   console.log(targetPanel);
 
+  const targetImg = targetTab.getAttribute("data-image");
+
   const tabContainer = targetTab.parentNode; // taking parent of targetTab in html
   console.log(tabContainer);
 
@@ -55,4 +57,10 @@ function changeTabPanel(e) {
   });
 
   mainContainer.querySelector([`#${targetPanel}`]).removeAttribute("hidden");
+
+  mainContainer.querySelectorAll("picture").forEach((picture) => {
+    picture.setAttribute("hidden", true);
+  });
+
+  mainContainer.querySelector([`#${targetImg}`]).removeAttribute("hidden");
 }
