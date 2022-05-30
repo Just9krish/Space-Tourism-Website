@@ -1,35 +1,58 @@
 const tabList = document.querySelector('[role="tablist"]');
-const tab = tabList.querySelectorAll('[role="tab"]');
+const tabs = tabList.querySelectorAll('[role="tab"]');
+
+tabList.addEventListener("keydown", changeTabFocus);
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", changeTabPanel);
+});
 
 let tabFocus = 0;
-
-tabList.addEventListener("keydown", changeTab);
-
-function changeTab(e) {
+function changeTabFocus(e) {
   const keydownLeft = 37;
   const keydownRight = 39;
 
-  // change the tabindex of the current tab to -1
+  // change the tabindex of the current tabs to -1
   if (e.keyCode === keydownLeft || e.keyCode === keydownRight) {
-    tab[tabFocus].setAttribute("tabindex", -1);
+    tabs[tabFocus].setAttribute("tabindex", -1);
   }
 
-  // if the right key is pushed, move to the next tab on the right
+  // if the right key is pushed, move to the next tabs on the right
   if (e.keyCode === keydownRight) {
     tabFocus++;
-    if (tabFocus >= tab.length) {
+    if (tabFocus >= tabs.length) {
       tabFocus = 0;
     }
   }
 
-  // if the left key is pushed, move to the next tab on the left
+  // if the left key is pushed, move to the next tabs on the left
   if (e.keyCode === keydownLeft) {
     tabFocus--;
     if (tabFocus < 0) {
-      tabFocus = tab.length - 1;
+      tabFocus = tabs.length - 1;
     }
   }
 
-  tab[tabFocus].setAttribute("tabindex", 0);
-  tab[tabFocus].focus();
+  tabs[tabFocus].setAttribute("tabindex", 0);
+  tabs[tabFocus].focus();
+}
+
+function changeTabPanel(e) {
+  const targetTab = e.target;
+  console.log(targetTab);
+
+  const targetPanel = targetTab.getAttribute("aria-controls");
+  console.log(targetPanel);
+
+  const tabContainer = targetTab.parentNode; // taking parent of targetTab in html
+  console.log(tabContainer);
+
+  const mainContainer = tabContainer.parentNode;
+  console.log(mainContainer);
+
+  mainContainer.querySelectorAll('[role="tabpanel"]').forEach((panel) => {
+    panel.setAttribute("hidden", true);
+  });
+
+  mainContainer.querySelector([`#${targetPanel}`]).removeAttribute("hidden");
 }
