@@ -6,6 +6,6 @@
 ![Design preview for the Space tourism website coding challenge](./preview.jpg)
 
 
-[Frontend Mentor](https://www.frontendmentor.io)
+[Live site](https://book-your-space-tour.netlify.app/)
 
 **Have fun building!** 🚀
