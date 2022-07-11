@@ -709,7 +709,7 @@ body {
             '. tabs image .';
     }
 
-    .grid-container--crew > picture {
+    .grid-container--crew>picture {
         align-self: end;
         max-width: 90%;
         grid-column: span 2;
