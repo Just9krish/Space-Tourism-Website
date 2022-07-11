@@ -86,7 +86,8 @@ p {
 body {
     font-family: var(--ff-sans-normal);
     font-size: var(--fs-400);
-    color: hsl(var(--clr-white));
+    /* color: hsl(var(--clr-white)); */
+    color: hsl(231, 77%, 89%);
     background-color: hsl(var(--clr-dark));
     line-height: 1.5;
     min-height: 100vh;
@@ -499,7 +500,6 @@ select {
 }
 
 .number-indicators {
-    display: grid;
     gap: 2rem;
 }
 
@@ -515,6 +515,12 @@ select {
 .number-indicators>[aria-selected="true"] {
     background-color: hsl(var(--clr-white) / 1);
     color: hsl(var(--clr-dark));
+}
+
+@media (min-width: 45em) {
+    .grid-container--technology>.number-indicators {
+        flex-direction: column;
+    }
 }
 
 
@@ -685,19 +691,15 @@ body {
     grid-area: title;
 }
 
-.crew-details h2 {
-    color: hsl(var(--clr-white) / .5);
-}
 
-
-/* destination layout */
+/* technology layout */
 
 .grid-container--technology {
-    --flow-space : 2em;
+    --flow-space: 2em;
     grid-template-areas: 'title'
-    'image'
-    'tabs'
-    'content';
+        'image'
+        'tabs'
+        'content';
 }
 
 .grid-container--technology>picture {
@@ -715,6 +717,7 @@ body {
 .grid-container--technology>.technology-details {
     grid-area: content;
 }
+
 
 @media (min-width: 35em) {
     .numbered-title {
@@ -791,11 +794,13 @@ body {
     }
 
     .grid-container--technology {
-        grid-template-columns: minmax(1rem, 2rem) minmax(0, 5rem) minmax(0, 1fr) minmax(1rem, 1fr);
-        grid-template-areas: 
-        '. title title .'
-        '. tabs content image'
-        '. tabs content image';
+       /* grid-template-columns: minmax(0, 1rem) minmax(1rem, 3rem) minmax(5rem, 1fr) minmax(5rem, 1fr); */
+        grid-template-areas:
+            '. title title .'
+            '. tabs content image'
+            '. tabs content image';
+
+        grid-template-columns: minmax(1rem, 1fr) minmax(1rem, 1rem) minmax(25rem, 34rem) minmax(33rem, 1fr);
     }
 
     .grid-container--technology picture .technology-desktop-image {
