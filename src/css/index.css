@@ -296,6 +296,14 @@ select {
     color: hsl(var(--clr-white) / .25);
 }
 
+.number-indicator {
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    padding: 0 1em;
+    aspect-ratio: 1;
+    border: 1px solid #fff;
+}
 
 /* ------------------- */
 /* Compontents         */
@@ -553,6 +561,25 @@ body {
     }
 }
 
+/* technology */
+.technology {
+    background-image: url(/src/assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+    .technology {
+        background-position: center center;
+        background-image: url(/src/assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .technology {
+        background-image: url(/src/assets/technology/background-technology-desktop.jpg)
+    }
+}
+
+
 /* ----------------------------- */
 /* Layout                        */
 /* ----------------------------- */
@@ -635,8 +662,37 @@ body {
     grid-area: content;
 }
 
+.grid-container--crew>.numbered-title {
+    grid-area: title;
+}
+
 .crew-details h2 {
     color: hsl(var(--clr-white) / .5);
+}
+
+
+/* destination layout */
+
+.grid-container--technology {
+    --flow-space : 2em;
+    grid-template-areas: 'title'
+    'image'
+    'tabs'
+    'content';
+}
+
+.grid-container--technology>picture {
+    grid-area: image;
+    /* max-width: 60%;
+    border-bottom: 1px solid hsl(var(--clr-white) / .1); */
+}
+
+.grid-container--crew>.number-indicators {
+    grid-area: tab;
+}
+
+.grid-container--crew>.technology-details {
+    grid-area: content;
 }
 
 @media (min-width: 35em) {
@@ -658,8 +714,6 @@ body {
             'tabs'
             'image';
     }
-
-
 }
 
 @media (min-width: 45em) {
@@ -714,5 +768,13 @@ body {
         max-width: 90%;
         grid-column: span 2;
     }
+
+    .grid-container--technology {
+        /* grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr); */
+        grid-template-areas: 
+        '. title title .'
+        '. tabs content image'
+        '. tabs content image';
+    } 
 
 }
