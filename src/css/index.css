@@ -649,6 +649,7 @@ body {
 
 .grid-container--destination>.destination-info {
     grid-area: content;
+    transition: all 0.3s ease-in-out;
 }
 
 .destination-meta {
