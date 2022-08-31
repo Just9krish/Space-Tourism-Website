@@ -12,6 +12,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
     rel="stylesheet" />
+  
+  <!-- Animation library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
   <!-- Our custom CSS -->
   <link rel="stylesheet" href="./css/index.css" />
@@ -56,19 +62,19 @@
       <span aria-hidden="true">01</span> Pick your destination
     </h1>
 
-    <picture id="moon-img">
+    <picture id="moon-img" class="animate__animated animate__fadeInLeft">
       <source srcset="assets/destination/image-moon.webp" type="image/webp" />
       <img src="assets/destination/image-moon.png" alt="the moon" />
     </picture>
-    <picture id="mars-img" hidden>
+    <picture id="mars-img" class="animate__animated animate__fadeInLeft" hidden>
       <source srcset="assets/destination/image-mars.webp" type="image/webp" />
       <img src="assets/destination/image-mars.png" alt="the planet mars" />
     </picture>
-    <picture id="europa-img" hidden>
+    <picture id="europa-img" class="animate__animated animate__fadeInLeft" hidden>
       <source srcset="assets/destination/image-europa.webp" type="image/webp" />
       <img src="assets/destination/image-europa.png" alt="the planet europa" />
     </picture>
-    <picture id="titan-img" hidden>
+    <picture id="titan-img" class="animate__animated animate__fadeInLeft" hidden>
       <source srcset="assets/destination/image-titan.webp" type="image/webp" />
       <img src="assets/destination/image-titan.png" alt="the moon titan" />
     </picture>
@@ -93,7 +99,7 @@
     </div>
 
     <!-- The moon -->
-    <article class="destination-info flow" id="moon-tab" tabindex="0" role="tabpanel">
+    <article class="destination-info flow animate__animated animate__fadeInRight" id="moon-tab" tabindex="0" role="tabpanel">
       <h2 class="fs-800 uppercase ff-serif text-white">Moon</h2>
 
       <p>
@@ -116,7 +122,7 @@
     </article>
 
     <!-- Mars -->
-    <article hidden class="destination-info flow" id="mars-tab" tabindex="0" role="tabpanel">
+    <article hidden class="destination-info flow animate__animated animate__fadeInRight" id="mars-tab" tabindex="0" role="tabpanel">
       <h2 class="fs-800 uppercase ff-serif text-white">Mars</h2>
 
       <p>
@@ -138,7 +144,7 @@
     </article>
 
     <!-- Europa -->
-    <article hidden class="destination-info flow" id="europa-tab" tabindex="0" role="tabpanel">
+    <article hidden class="destination-info flow animate__animated animate__fadeInRight" id="europa-tab" tabindex="0" role="tabpanel">
       <h2 class="fs-800 uppercase ff-serif text-white">Europa</h2>
 
       <p>
@@ -160,7 +166,7 @@
     </article>
 
     <!-- Titan -->
-    <article hidden class="destination-info flow" id="titan-tab" tabindex="0" role="tabpanel">
+    <article hidden class="destination-info flow animate__animated animate__fadeInRight" id="titan-tab" tabindex="0" role="tabpanel">
       <h2 class="fs-800 uppercase ff-serif text-white">Titan</h2>
 
       <p>
